@@ -66,11 +66,12 @@ void bullpgia::SmartGuesser::All() {
         stringstream ss;
         ss << setw(length) << setfill('0') << i;
         string s = ss.str();
-        this->AllPoss.push_back(s);
+        AllPoss.push_back(s);
     }
 }
 
-void bullpgia::SmartGuesser::remove(string guess, string answer)/**
+void bullpgia::SmartGuesser::remove(string guess, string answer)
+/**
  *
  * @param guess is the last guess we had and we get replay from play.cpp so we eliminate the possibilities
  * that dont give us the same option as the bulls and cows as last guess
