@@ -13,6 +13,6 @@ using namespace std;
 #include "DummyGuessers.hpp"
 using namespace bullpgia;
 
-//int main() {
-//	Chooser c;
-//}
+int main() {
+	Chooser c;
+}
