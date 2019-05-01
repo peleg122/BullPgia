@@ -40,8 +40,19 @@ string bullpgia::SmartGuesser::guess() {
      */
     if(AllPoss.size()>1){
             Last = AllPoss[Random(0,AllPoss.size())];
+            if(Last.length()!=length){
+                AllPoss.clear();
+                All();
+                Last = AllPoss[Random(0,AllPoss.size())];
+            }
     }else{
-        Last = AllPoss[0];
+        if(AllPoss[0].length()!=length){
+            AllPoss.clear();
+            All();
+            Last = AllPoss[Random(0,AllPoss.size())];
+        }else{
+            Last = AllPoss[0];
+        }
     }
     return Last;
 }
