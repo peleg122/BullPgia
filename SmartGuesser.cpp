@@ -10,6 +10,7 @@
 #include <sstream>
 #include <ctime>
 #include <iomanip>
+#include <algorithm>
 #include "calculate.hpp"
 
 using namespace std;
@@ -81,8 +82,9 @@ void bullpgia::SmartGuesser::remove(string guess, string answer)
 {
     for (auto i= AllPoss.begin();i != AllPoss.end();i++){
         string token = *i;
-        if (calculateBullAndPgia(token, guess) != answer)
-        AllPoss.erase(i--);
+        //if (calculateBullAndPgia(token, guess) != answer)
+        //AllPoss.erase(i--);
+        AllPoss.erase(std::remove_if(AllPoss.begin(), AllPoss.end(), [&](const std::string& token, const std::string& guess) { return calculateBullAndPgia(token, guess) != answer; }), AllPoss.end());
     }
 }
 
